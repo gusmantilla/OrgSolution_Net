@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <title>Creación de colaboradores</title>
+</head>
+<body>
+<div class="px-4 py-5 my-5 text-center d-flex flex-column align-items-center">
+    <h1
+            class="display-8 fw-bold">Creación de Colaboradores
+    </h1>
+    <form th:action="@{/empleado}" th:method="post"  class="d-flex flex-column gap-3 align-items-center">
+        <input th:field="*{Empleado.nombre_em}" class="form-control" type="text" placeholder="Nombre empleado" />
+        <input th:field="*{Empleado.correo_em}" class="form-control" type="text" placeholder="correo empleado" />
+        <input th:field="*{Empleado.empresa_em}" class="form-control" type="text" placeholder="empresa empleado" />
+        <input th:field="*{Empleado.rol_em}" class="form-control" type="text" placeholder="rol empleado" />
+        <!--        <input th:field="*{Empresa.id}" class="form-control" type="number" placeholder="id" />-->
+        <div>
+            <div>
+                <button class="btn btn-outline-primary btn-lg px-4 my-2" type="submit">Crear Empleado</button>
+            </div>
+            <a href="/empresa" class="btn btn-outline-primary btn-lg px-4 my-2">Empresas</a>
+            <a href="/empleado" class="btn btn-outline-primary btn-lg px-4 my-2">Colaboradores</a>
+            <a href="/movimiento" class="btn btn-outline-primary btn-lg px-4 my-2">Movimientos</a>
+            <div>
+                <a href="/" class="btn btn-outline-secondary btn-lg px-4 my-2">Inicio</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

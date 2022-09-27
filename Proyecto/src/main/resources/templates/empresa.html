@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Empresas</title>
+</head>
+<body>
+<main>
+    <div class="px-4 py-5 my-5 text-center">
+        <div>
+            <h1 class="display-8 fw-bold">Mis Empresas</h1>
+
+        </div>
+
+        <div class="d-flex gap-4 justify-content-center">
+            <div th:each="empresa : ${empresa}" class="card" style="width: 18rem;">
+                <img src="img/empresa.png" class="d-block mx-auto mb-4" height="100" alt="..." >
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Nombre: '+${empresa.nombre}">Card title</h5>
+                    <p class="card-text" th:text="'Dirección: '+${empresa.direccion}"></p>
+                    <p class="card-text" th:text="'Telefono: '+${empresa.telefono}"></p>
+                    <p class="card-text" th:text="'NIT: '+${empresa.nit}"></p>
+                    <form th:action="@{/empresa/{id}(id=${empresa.id})}" th:method="delete">
+                        <button type="submit" class="btn btn-danger">Eliminar empresa</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+        <a href="/empresa/new" class="btn btn-outline-primary btn-lg px-4 my-2">Creación de Empresas</a>
+        <a href="/movimiento" class="btn btn-outline-primary btn-lg px-4 my-2">Movimientos</a>
+        <a href="/empleado" class="btn btn-outline-primary btn-lg px-4 my-2">Colaboradores</a>
+
+        <div>
+    <a href="/" class="btn btn-outline-secondary btn-lg px-4 my-2">Inicio</a>
+</div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Inicio</title>
+</head>
+<body>
+
+<main>
+    <div class="px-4 py-5 my-5 text-center">
+        <img src="img/empresa.png" class="d-block mx-auto mb-4" height="100" alt="Empresa"/>
+        <h1 class="display-8 fw-bold">OrgSolutionNet</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Aplicativo web para la gestión de usuarios, empresas y movimientos financieros en la empresa OrgSolutionNet, permite la creación, edición y eliminación de variables solicitadas por el usuario además de visualizar el historial de movimientos financieros.
+            </p>
+            <div sec:authorize="!isAuthenticated()">
+                <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-4 gap-3">inicia sesion</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <h3 th:text="'bienvenido, '+ ${user.getEmail()}"></h3>
+
+            </div>
+            <!--            <a href="/usuario" type="button" class="btn btn-primary btn-lg px-4 gap-3">Vamos a los usuarios</a>-->
+            <!--            <a href="/movimientoDinero" type="button" class="btn btn-primary btn-lg px-4 gap-3">Vamos a los movimientos</a>-->
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <a th:href="@{/empresa}" type="button" class="btn btn-outline-primary btn-lg px-4 my-2">Veamos nuestras empresas</a>
+            <a th:href="@{/empleado}" type="button" class="btn btn-outline-primary btn-lg px-4 my-2">Veamos nuestros colaboradores</a>
+            <a th:href="@{/movimiento}" type="button" class="btn btn-outline-primary btn-lg px-4 my-2">Veamos nuestros movimientos</a>
+        </div>
+<div>
+    <a href="/empresa/creadores" type="button" class="btn btn-outline-secondary btn-lg px-4 my-2 ">conocer sus creadores</a>
+
+</div>
+
+    </div>
+</main>
+<!--//prueba de los diferentes tipos de letra, botones y color-->
+<!--<h1> Esto es un titulo h1</h1>
+<h2> Esto es un titulo h2</h2>
+<h3> Esto es un titulo h3</h3>
+<h4> Esto es un titulo h4</h4>
+<h5> Esto es un titulo h5</h5>
+<h6> Esto es un titulo h6</h6>
+
+<p>esto es un texto que podria ser demasiado largo</p>
+<span>esto es un texto corto</span>
+
+<a href="https://www.google.com"> esto es un link a google</a>
+
+<form>
+    <input placeholder="ingresa tu nombre" type="text"/>
+    <input type="number"/>
+    <input type="date"/>
+    <input type="file">
+
+    <button class="button-primary">esto es un boton</button>
+
+</form>-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
